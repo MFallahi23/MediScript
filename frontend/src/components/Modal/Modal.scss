@@ -1,0 +1,108 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
+.modal {
+  background-color: $color-white;
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 25px 25px;
+  border-radius: 24px;
+  opacity: 0;
+  pointer-events: none;
+
+  &--visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @include vp-767 {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translate(0%, 0%);
+    border-radius: 0;
+    padding: 45px 25px 25px;
+  }
+
+  &__bg {
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+
+    &--visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    background-color: $color-white;
+    border-radius: 44px;
+    padding: 10px;
+    top: 0px;
+    right: -60px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+
+    @include vp-767 {
+      right: 10px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    &-intro {
+      margin: 0;
+      font-size: 28px;
+      line-height: 38px;
+      font-weight: 700;
+      max-width: 400px;
+      text-align: center;
+
+      @include vp-1023 {
+        font-size: 22px;
+        line-height: 32px;
+        max-width: 300px;
+      }
+
+      @include vp-767 {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 500px;
+      }
+
+      @media (max-width: 550px) {
+        max-width: 300px;
+      }
+
+      @media (max-width: 500px) {
+        font-size: 18px;
+        line-height: 28px;
+      }
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}

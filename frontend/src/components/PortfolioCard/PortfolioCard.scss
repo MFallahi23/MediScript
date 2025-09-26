@@ -1,0 +1,66 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
+.portfolio-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+
+  &:hover .portfolio-card__overlay {
+    opacity: 1;
+  }
+
+  &--coming-soon {
+    height: 250px;
+    background: #e5e7eb; // light gray placeholder
+    position: relative;
+
+    &__overlay--always-on {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__overlay-text {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  }
+
+  &__link {
+    display: block;
+    position: relative;
+  }
+  &__img {
+    width: 100%; // will fit the container
+    height: 250px; // keeps proportions
+    object-fit: cover; // crops gracefully if needed
+    transition: transform 0.5s ease;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+
+    &-text {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  }
+}

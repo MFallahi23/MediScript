@@ -1,0 +1,59 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
+.custom-input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  row-gap: 8px;
+  $root: &;
+
+  &__field {
+    border: 1px solid $color-periwinkle;
+    border-radius: 8px;
+    color: $color-very-dark-gray;
+    font-family: inherit;
+    font-size: 14px;
+    height: 44px;
+    line-height: 16px;
+    outline: none;
+    padding: 0 56px 0 16px;
+    transition: border-color $tr-3, background-color $tr-3;
+
+    &::placeholder {
+      color: $color-manatee;
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: $color-pure-blue;
+
+      ~ #{$root}__icon {
+        color: $color-pure-blue;
+        scale: 1.1;
+      }
+    }
+  }
+
+  &__label {
+    background-color: $color-white;
+    color: $color-manatee;
+    font-size: 14px;
+    left: 13px;
+    line-height: 16px;
+    padding: 0 4px;
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    user-select: none;
+  }
+
+  &__icon {
+    color: $color-manatee;
+    pointer-events: none;
+    position: absolute;
+    right: 16px;
+    top: 10px;
+    transition: color $tr-3, scale $tr-3;
+  }
+}

@@ -1,0 +1,26 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
+.btn {
+  padding: 12px;
+  background-color: $color-pure-blue;
+  border-radius: 42px;
+  border: none;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  justify-content: center;
+  color: $color-very-light-gray;
+  cursor: pointer;
+  transition: background-color $tr-1;
+
+  &:hover {
+    background-color: $color-light-blue;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+}

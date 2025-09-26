@@ -1,0 +1,86 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
+.doctor-website {
+  margin: 0 0 140px;
+
+  &__title {
+    font-size: 38px;
+    line-height: 48px;
+    font-weight: 700;
+    font-family: $ff-primary;
+    text-align: center;
+    margin: 0 0 78px;
+    position: relative;
+
+    &-icon {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-60%);
+
+      @include vp-1023 {
+        width: 200px;
+      }
+    }
+
+    @include vp-1023 {
+      font-size: 28px;
+      line-height: 38px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    @include vp-1023 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-title {
+      font-size: 28px;
+      line-height: 32px;
+      margin: 0 0 15px;
+      text-align: center;
+    }
+
+    &-desc {
+      text-align: center;
+      max-width: 300px;
+      margin: 0 0 50px;
+      font-size: 16px;
+      line-height: 26px;
+      max-height: 80px;
+    }
+  }
+
+  &__number {
+    font-size: 80px;
+    font-weight: 800;
+    text-align: center;
+    display: block;
+    font-family: $ff-primary;
+    color: $color-dim-gray;
+  }
+}

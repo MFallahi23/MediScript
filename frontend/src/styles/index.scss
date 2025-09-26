@@ -1,0 +1,42 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: $ff-secondary;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: $color-very-dark-gray;
+  background-color: $color-very-light-gray;
+}
+
+main {
+  flex-grow: 1;
+}
+
+img {
+  display: block;
+  height: auto;
+  object-fit: cover;
+}
+
+a {
+  color: $color-black;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}

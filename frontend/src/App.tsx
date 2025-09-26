@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Blog from "./components/Blog/Blog";
+import Contact from "./components/Contact/Contact";
+import DoctorWebsite from "./components/DoctorWebsite/DoctorWebsite";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Hero from "./components/Hero/Hero";
+import Modal from "./components/Modal/Modal";
+import Portfolio from "./components/Portfolio/Portfolio";
+import Services from "./components/Services/Services";
+import WhyUs from "./components/WhyUs/WhyUs";
+import "./styles/App.scss";
+import "./styles/container.scss";
+import "./styles/noramlize.scss";
+import "./styles/visually-hidden.scss";
+import Success from "./components/Success/Success";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [showModal, setShowModal] = useState(false);
+  const [success, setSuccess] = useState(false);
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header setShowModal={setShowModal} />
+
+      <main>
+        <Modal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          setSuccess={setSuccess}
+        />
+        <Success success={success} setSuccess={setSuccess} />
+        <Hero setShowModal={setShowModal} />
+        <DoctorWebsite />
+        <Services />
+        <WhyUs />
+        <Portfolio />
+        <Blog />
+        <Contact setSuccess={setSuccess} />
+      </main>
+      <Footer setShowModal={setShowModal} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

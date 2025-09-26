@@ -1,0 +1,98 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
+.footer {
+  padding: 10px 0;
+  background-color: $color-very-dark-gray;
+  color: $color-very-light-gray;
+
+  &__top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    align-items: start;
+    padding: 40px 20px;
+
+    @include vp-767 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+
+    @include vp-767 {
+      align-items: center;
+    }
+
+    &-text {
+      @include vp-767 {
+        text-align: center;
+      }
+    }
+  }
+
+  &__info {
+    &-title {
+      color: $color-white;
+      margin: 0 0 15px;
+
+      @include vp-767 {
+        text-align: center;
+      }
+    }
+
+    &-links {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      gap: 10px;
+
+      @include vp-767 {
+        align-items: center;
+      }
+    }
+
+    &-link {
+      color: $color-very-light-gray;
+      display: block;
+
+      @include vp-767 {
+        text-align: center;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding-top: 10px;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: $color-dim-gray;
+    }
+    @include vp-767 {
+      flex-direction: column;
+      padding-top: 20px;
+    }
+  }
+
+  &__copy {
+    @include vp-767 {
+      text-align: center;
+    }
+  }
+}
