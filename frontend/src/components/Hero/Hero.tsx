@@ -10,7 +10,7 @@ interface iHero {
 
 const Hero: React.FC<iHero> = ({ setShowModal }) => {
   return (
-    <section className="hero">
+    <section className="hero" id="hero">
       <h1 className="visually-hidden">
         MediScript, Agence digitale spécialisée dans les sites pour cabinets
         médicaux

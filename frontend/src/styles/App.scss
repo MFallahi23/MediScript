@@ -1,7 +1,25 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as *;
+
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
   height: fit-content;
+}
+
+.whatsapp-icon {
+}
+
+.whatsapp-link {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transition: $tr-1;
+  z-index: 2;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }

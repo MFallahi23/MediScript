@@ -1,9 +1,34 @@
+import { useEffect, useState } from "react";
 import Underline from "../../assets/icons/underline.svg?react";
 import BlogCard from "../BlogCard/BlogCard";
 
 import "./Blog.scss";
+import axios from "axios";
+import { formatDate } from "../../utils";
+
+interface Post {
+  id: number;
+  title: string;
+  content: string;
+  created_at: string;
+}
 
 const Blog: React.FC = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  useEffect(() => {
+    console.log("hello");
+    const fetchLatestPosts = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3000/posts?limit=3`);
+        console.log(res.data);
+        setPosts(res.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchLatestPosts();
+  }, []);
+
   return (
     <section className="blog">
       <div className="container">
@@ -18,45 +43,54 @@ const Blog: React.FC = () => {
             />
           </h2>
           <div className="blog__content">
-            <ul className="blog__list">
-              <li className="blog__item">
-                <BlogCard
-                  num="1"
-                  date="Septembre 6, 2025"
-                  title="Comment créer un site web pour votre cabinet médical"
-                  text="Un site web bien conçu est aujourd'hui indispensable
-                          pour tout cabinet médical. Il permet de présenter vos
-                          services, faciliter la prise de rendez-vous et
-                          rassurer vos patients. Découvrez les étapes clés pour
-                          créer un site clair, moderne et efficace."
-                />
-              </li>
-              <li className="blog__item">
-                <BlogCard
-                  num="2"
-                  date="Septembre 6, 2025"
-                  title="Comment devenir un médecin réputé au Maroc"
-                  text="La réputation d'un médecin ne dépend pas seulement de
-                          ses compétences, mais aussi de sa visibilité et de sa
-                          relation avec les patients. Apprenez les stratégies
-                          pour bâtir votre image professionnelle et gagner la
-                          confiance de vos patients au Maroc."
-                />
-              </li>
-              <li className="blog__item">
-                <BlogCard
-                  num="3"
-                  date="Septembre 6, 2025"
-                  title="5 erreurs à éviter lors de la création d’un site web
-                          pour médecins"
-                  text="Créer un site web pour un cabinet médical peut sembler
-                          simple, mais certaines erreurs nuisent à son
-                          efficacité. Découvrez les cinq erreurs les plus
-                          fréquentes et comment les corriger pour offrir une
-                          expérience optimale à vos patients."
-                />
-              </li>
-            </ul>
+            {posts.length > 0 ? (
+              <ul className="blog__list">
+                <li className="blog__item">
+                  <BlogCard
+                    num="1"
+                    date={formatDate(posts[0].created_at)}
+                    title={posts[0].title}
+                    text={
+                      posts[0].content.length > 250
+                        ? posts[0].content.slice(0, 250) + "…"
+                        : posts[0].content
+                    }
+                    withImg={true}
+                    id={posts[0].id}
+                  />
+                </li>
+                <li className="blog__item">
+                  <BlogCard
+                    num="2"
+                    date={formatDate(posts[1].created_at)}
+                    title={posts[1].title}
+                    text={
+                      posts[1].content.length > 250
+                        ? posts[1].content.slice(0, 250) + "…"
+                        : posts[1].content
+                    }
+                    withImg={true}
+                    id={posts[1].id}
+                  />
+                </li>
+                <li className="blog__item">
+                  <BlogCard
+                    num="3"
+                    date={formatDate(posts[2].created_at)}
+                    title={posts[2].title}
+                    text={
+                      posts[2].content.length > 250
+                        ? posts[2].content.slice(0, 250) + "…"
+                        : posts[2].content
+                    }
+                    withImg={true}
+                    id={posts[2].id}
+                  />
+                </li>
+              </ul>
+            ) : (
+              <p>Pas d'articles disponibles</p>
+            )}
           </div>
         </div>
       </div>

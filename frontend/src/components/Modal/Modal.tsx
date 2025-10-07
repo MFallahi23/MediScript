@@ -4,6 +4,7 @@ import CustomTextarea from "../CustomTextarea/CustomTextarea";
 import ModalClose from "../../assets/icons/close.svg?react";
 import Button from "../Button/Button";
 import { useRef } from "react";
+import axios from "axios";
 
 interface iModal {
   showModal: boolean;
@@ -24,19 +25,10 @@ const Modal: React.FC<iModal> = ({ showModal, setShowModal, setSuccess }) => {
     };
 
     try {
-      const res = await fetch("http://localhost:3000/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (res.ok) {
-        setSuccess(true);
-        formRef.current?.reset();
-        setShowModal(false);
-      } else {
-        alert("Erreur lors de l'envoi du formulaire");
-      }
+      await axios.post("http://localhost:3000/contact", payload);
+      setSuccess(true);
+      formRef.current?.reset();
+      setShowModal(false);
     } catch (err) {
       console.error(err);
       alert("Impossible de contacter le serveur");

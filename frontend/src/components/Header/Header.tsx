@@ -21,7 +21,7 @@ const Header: React.FC<iHeader> = ({ setShowModal }) => {
           >
             <Logo className="header__logo" width={140} height={40} />
           </a>
-          <Nav type="desktop" />
+          <Nav type="desktop" setActiveMenu={setActiveMenu} />
           <Button
             className="header__btn  btn--cta"
             text="Obtenez votre site"
@@ -44,6 +44,7 @@ const Header: React.FC<iHeader> = ({ setShowModal }) => {
             type="mobile"
             activeMenu={activeMenu}
             setShowModal={setShowModal}
+            setActiveMenu={setActiveMenu}
           />
         </div>
       </div>

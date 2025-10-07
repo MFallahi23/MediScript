@@ -2,6 +2,8 @@ import "./Footer.scss";
 import LogoWhite from "../../assets/icons/logo-white.svg?react";
 import Socials from "../Socials/Socials";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 interface iHeader {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -33,39 +35,55 @@ const Footer: React.FC<iHeader> = ({ setShowModal }) => {
               <h3 className="footer__info-title">Liens utiles</h3>
               <ul className="footer__info-links">
                 <li className="footer__info-item">
-                  <a href="#" className="footer__info-link">
+                  <HashLink className="footer__info-link" smooth to="/#hero">
                     Accueil
-                  </a>
+                  </HashLink>
                 </li>
                 <li className="footer__info-item">
-                  <a href="#" className="footer__info-link">
+                  <HashLink
+                    className="footer__info-link"
+                    smooth
+                    to="/#services"
+                  >
                     Services
-                  </a>
+                  </HashLink>
                 </li>
                 <li className="footer__info-item">
-                  <a href="#" className="footer__info-link">
+                  <HashLink
+                    className="footer__info-link"
+                    smooth
+                    to="/#doctor-website"
+                  >
                     Pourquoi un site web pour votre cabinet?
-                  </a>
+                  </HashLink>
                 </li>
                 <li className="footer__info-item">
-                  <a href="#" className="footer__info-link">
+                  <HashLink className="footer__info-link" smooth to="/#why-us">
                     Pourquoi nous choisir?
-                  </a>
+                  </HashLink>
                 </li>
                 <li className="footer__info-item">
-                  <a href="#" className="footer__info-link">
+                  <HashLink
+                    className="footer__info-link"
+                    smooth
+                    to="/#portfolio"
+                  >
                     Portfolio
-                  </a>
+                  </HashLink>
                 </li>
                 <li className="footer__info-item">
-                  <a href="#" className="footer__info-link">
+                  <HashLink
+                    className="footer__info-link"
+                    smooth
+                    to="/blog#blog-page"
+                  >
                     Blog
-                  </a>
+                  </HashLink>
                 </li>
                 <li className="footer__info-item">
-                  <a href="#" className="footer__info-link">
+                  <HashLink className="footer__info-link" smooth to="/#contact">
                     Contact
-                  </a>
+                  </HashLink>
                 </li>
               </ul>
             </div>
@@ -84,14 +102,14 @@ const Footer: React.FC<iHeader> = ({ setShowModal }) => {
               <h3 className="footer__info-title">Mentions légales</h3>
               <ul className="footer__info-links">
                 <li className="footer__info-item">
-                  <a className="footer__info-link" href="#">
+                  <Link className="footer__info-link" to={"/legal"}>
                     Mentions légales{" "}
-                  </a>
+                  </Link>
                 </li>
                 <li className="footer__info-item">
-                  <a className="footer__info-link" href="#">
+                  <Link className="footer__info-link" to={"/politic"}>
                     Politique de confidentialité
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

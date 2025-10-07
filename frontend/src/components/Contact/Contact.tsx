@@ -5,6 +5,7 @@ import CustomInput from "../CustomInput/CustomInput";
 import CustomTextarea from "../CustomTextarea/CustomTextarea";
 import Button from "../Button/Button";
 import { useRef } from "react";
+import axios from "axios";
 
 interface iContact {
   setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,25 +24,16 @@ const Contact: React.FC<iContact> = ({ setSuccess }) => {
     };
 
     try {
-      const res = await fetch("http://localhost:3000/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (res.ok) {
-        setSuccess(true);
-        formRef.current?.reset();
-      } else {
-        alert("Erreur lors de l'envoi du formulaire");
-      }
+      await axios.post("http://localhost:3000/contact", payload);
+      setSuccess(true);
+      formRef.current?.reset();
     } catch (err) {
       console.error(err);
       alert("Impossible de contacter le serveur");
     }
   };
   return (
-    <section className="contact">
+    <section className="contact" id="contact">
       <div className="container">
         <div className="contact__wrapper">
           <h2 className="contact__title">

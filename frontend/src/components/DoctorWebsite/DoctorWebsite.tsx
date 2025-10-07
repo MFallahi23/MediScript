@@ -6,7 +6,7 @@ import "./DoctorWebsite.scss";
 
 const DoctorWebsite: React.FC = () => {
   return (
-    <section className="doctor-website">
+    <section className="doctor-website" id="doctor-website">
       <div className="container">
         <div className="doctor-website__wrapper">
           <h2 className="doctor-website__title">

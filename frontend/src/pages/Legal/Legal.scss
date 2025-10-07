@@ -1,0 +1,32 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
+.legal {
+  margin: 150px 0 120px;
+
+  &__title {
+    font-size: 38px;
+    line-height: 48px;
+    font-weight: 700;
+    font-family: $ff-primary;
+    text-align: center;
+    margin: 0 0 88px;
+    position: relative;
+
+    &-icon {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-60%);
+
+      @include vp-1023 {
+        width: 200px;
+      }
+    }
+  }
+
+  &__content {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}

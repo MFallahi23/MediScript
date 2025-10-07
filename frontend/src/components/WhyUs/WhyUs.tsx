@@ -4,7 +4,7 @@ import "./WhyUs.scss";
 
 const WhyUs: React.FC = () => {
   return (
-    <section className="why-us">
+    <section className="why-us" id="why-us">
       <div className="container">
         <div className="why-us__wrapper">
           <h2 className="why-us__title">

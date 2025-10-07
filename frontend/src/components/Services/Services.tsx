@@ -4,7 +4,7 @@ import ServiceCard from "../ServiceCard/ServiceCard";
 
 const Services: React.FC = () => {
   return (
-    <section className="services">
+    <section className="services" id="services">
       <div className="container">
         <div className="services__wrapper">
           <h2 className="services__title">
