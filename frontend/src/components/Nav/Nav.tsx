@@ -1,5 +1,4 @@
 import Button from "../Button/Button";
-import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import "./Nav.scss";
 
