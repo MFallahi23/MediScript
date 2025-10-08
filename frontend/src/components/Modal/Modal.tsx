@@ -25,7 +25,7 @@ const Modal: React.FC<iModal> = ({ showModal, setShowModal, setSuccess }) => {
     };
 
     try {
-      await axios.post("http://localhost:3000/contact", payload);
+      await axios.post("/contact", payload);
       setSuccess(true);
       formRef.current?.reset();
       setShowModal(false);

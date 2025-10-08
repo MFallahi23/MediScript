@@ -18,7 +18,7 @@ const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await axios.get(`http://localhost:3000/posts/${id}`);
+      const res = await axios.get(`/posts/${id}`);
       setPost(res.data);
     };
     fetchPost();

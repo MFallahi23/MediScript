@@ -16,10 +16,9 @@ interface Post {
 const Blog: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   useEffect(() => {
-    console.log("hello");
     const fetchLatestPosts = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/posts?limit=3`);
+        const res = await axios.get(`/posts?limit=3`);
         console.log(res.data);
         setPosts(res.data);
       } catch (error) {

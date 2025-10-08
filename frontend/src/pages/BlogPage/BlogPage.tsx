@@ -18,7 +18,7 @@ const BlogPage: React.FC = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/posts");
+        const res = await axios.get("/posts");
         setPosts(res.data);
       } catch (error) {
         alert(error);

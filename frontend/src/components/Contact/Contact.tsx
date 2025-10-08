@@ -24,7 +24,7 @@ const Contact: React.FC<iContact> = ({ setSuccess }) => {
     };
 
     try {
-      await axios.post("http://localhost:3000/contact", payload);
+      await axios.post("/contact", payload);
       setSuccess(true);
       formRef.current?.reset();
     } catch (err) {
